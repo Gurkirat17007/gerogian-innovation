@@ -125,6 +125,7 @@ $result = $con->query($sql);
                                 <th>File Name</th>
                                 <th>View</th>
                                 <th>Download</th>
+<!--                                <th>Discussion</th>-->
                             </tr>
                         </thead>
                         <tbody>
@@ -133,10 +134,11 @@ $result = $con->query($sql);
                         while($row = mysqli_fetch_array($result)) { ?>
                         <tr>
                             <td><?php echo $i++; ?></td>
-                            <td><?php echo $row['ideaName']; ?></td>
+                            <td><?php echo "<a href=\"detail.php?id={$row['id']}\">{$row['ideaName']}</a>"; ?></td>
                             <td><?php echo $row['filename']; ?></td>
                             <td><a href="uploads/<?php echo $row['filename']; ?>" target="_blank">View</a></td>
                             <td><a href="uploads/<?php echo $row['filename']; ?>" download>Download</a></td>
+<!--                            <td>Add Updates</td>-->
                         </tr>
                         <?php } ?>
                         </tbody>
